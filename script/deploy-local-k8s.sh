@@ -11,17 +11,17 @@ RELEASE_NAME="dev"
 
 function get_kubectl() {
     mkdir -p ${BIN_DIRECTORY}
-    $KUBECTL_PATH version || curl -Lo $KUBECTL_PATH https://storage.googleapis.com/kubernetes-release/release/${KUBE_LATEST_VERSION}/bin/linux/amd64/kubectl && chmod +x $KUBECTL_PATH
+    $KUBECTL_PATH version || curl -Lo $KUBECTL_PATH https://storage.googleapis.com/kubernetes-release/release/${KUBE_LATEST_VERSION}/bin/darwin/amd64/kubectl && chmod +x $KUBECTL_PATH
 }
 
 function get_helm() {
     mkdir -p ${BIN_DIRECTORY}
     if [[ ! -f /tmp/helm-${HELM_VERSION}.tar.gz ]];then
-        curl --output /tmp/helm-${HELM_VERSION}.tar.gz https://storage.googleapis.com/kubernetes-helm/helm-${HELM_VERSION}-linux-amd64.tar.gz
+        curl --output /tmp/helm-${HELM_VERSION}.tar.gz https://storage.googleapis.com/kubernetes-helm/helm-${HELM_VERSION}-darwin-amd64.tar.gz
         mkdir /tmp/helm
         tar -zxvf /tmp/helm-${HELM_VERSION}.tar.gz -C /tmp/helm
     fi
-    cp /tmp/helm/linux-amd64/helm ${HELM_PATH}
+    cp /tmp/helm/darwin-amd64/helm ${HELM_PATH}
 }
 
 function package_and_deploy() {
