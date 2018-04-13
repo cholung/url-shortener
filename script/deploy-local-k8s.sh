@@ -11,7 +11,7 @@ RELEASE_NAME="dev"
 
 function get_kubectl() {
     mkdir -p ${BIN_DIRECTORY}
-    $KUBECTL_PATH version || curl -Lo $KUBECTL_PATH https://storage.googleapis.com/kubernetes-release/release/${KUBE_LATEST_VERSION}/bin/darwin/amd64/kubectl && chmod +x $KUBECTL_PATH
+    $KUBECTL_PATH version || curl -Lo $KUBECTL_PATH https://storage.googleapis.com/kubernetes-release/release/v1.8.0/bin/darwin/amd64/kubectl && chmod +x $KUBECTL_PATH
 }
 
 function get_helm() {
